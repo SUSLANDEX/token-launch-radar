@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#results">Skip to results</a>
+<header class="masthead"><div class="wrap mast-inner"><div><span class="mark" aria-hidden="true">◉</span> TOKEN LAUNCH RADAR</div><span id="source">SEALED SNAPSHOT</span></div></header>
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <h1>Token Launch Radar</h1>
+      <p>Explore snapshot-based valuations and practical ways to evaluate each protocol before committing capital.</p>
+    </div>
+    <div class="metrics" id="metrics"></div>
+  </section>
+  <section class="workspace" aria-labelledby="rankings">
+    <header class="workspace-head">
+      <div><h2 id="rankings">Protocol rankings</h2><p>Token status reflects the snapshot. Check current status before acting.</p></div>
+      <button id="method" type="button">Valuation method ↗</button>
+    </header>
+    <div class="switch" aria-label="Token record">
+      <button type="button" data-mode="unrecorded" aria-pressed="true">No token recorded</button>
+      <button type="button" data-mode="recorded" aria-pressed="false">Token recorded</button>
+    </div>
+    <div class="filters">
+      <label>Search<input id="search" type="search" placeholder="Protocol or ticker"></label>
+      <label>Category<select id="category"></select></label>
+      <label>Network<select id="network"></select></label>
+      <label id="scope-field">Coverage<select id="scope"><option value="">All ranked</option><option value="watchlist">Watchlist</option><option value="early">Below watchlist floor</option></select></label>
+      <button type="button" id="clear">Reset filters</button>
+    </div>
+    <div id="results" class="results" tabindex="-1">
+      <div class="result-head"><output id="count" aria-live="polite"></output><span id="key"></span></div>
+      <div class="scroll"><table><thead id="columns"></thead><tbody id="rows"></tbody></table></div>
+      <p id="empty" hidden>No protocols match these filters.</p>
+      <div class="pager"><button type="button" id="prev">Previous</button><span id="page"></span><button type="button" id="next">Next</button></div>
+    </div>
+  </section>
+  <footer id="footer"></footer>
+</main>
+<dialog id="dialog" aria-labelledby="dialog-title">
+  <header class="dialog-head"><h2 id="dialog-title"></h2><form method="dialog"><button aria-label="Close details">Close ×</button></form></header>
+  <div id="dialog-body"></div>
+</dialog>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
